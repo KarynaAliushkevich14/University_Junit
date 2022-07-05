@@ -3,7 +3,7 @@ package mySimple;
 import java.util.Objects;
 
 public class Product {
-    final private int id;
+    private int id;
     private String title;
     private String description;
     private int id_user;
@@ -22,9 +22,7 @@ public class Product {
     public void setId(int id) throws  Exception {
         if (id != getId()) {
             throw new Exception("Id can't be changed");
-        }
-        this.id = id;
-    }
+        }this.id = id; }
 
     public String getTitle() {
         return title;
@@ -46,9 +44,7 @@ public class Product {
 
     public void setId_user(int id_user) throws Exception {
         if(id_user <0){
-            throw new Exception("Id_user can't be 0");
-        }
-
+            throw new Exception("Id_user can't be 0"); }
         this.id_user = id_user;
     }
 

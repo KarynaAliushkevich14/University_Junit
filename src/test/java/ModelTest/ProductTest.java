@@ -11,8 +11,7 @@ import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Field;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ProductTest {
     private ProductDaoImpl productDAO;
@@ -69,5 +68,11 @@ public class ProductTest {
         final Field field = laptop.getClass().getDeclaredField("id_user");
         field.setAccessible(true);
         assertEquals(4, field.get(laptop), "Expected and actual id of user didn't match");
+    }
+
+    @Test
+    public void setIdTest() throws Exception {
+        Product laptop = productDAO.getProductById(2);
+        assertThrows(Exception.class, ()->{laptop.setId(10);});
     }
 }
